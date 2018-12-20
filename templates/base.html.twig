@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Julien Delacourt - Développeur Web PHP{% endblock %}</title>
+        {% block stylesheets %}
+       	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700%7CLibre+Baskerville:400,400italic,700' rel='stylesheet' type='text/css'>
+	    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	    <link href='{{ asset('css/app.css') }}' rel='stylesheet' type='text/css'>
+	    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" />
+	    <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <script src='https://www.google.com/recaptcha/api.js'></script>
+ 
+
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        	{% block header %}
+        		<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+			        <div class="container">
+			            <a class="navbar-brand" href="{{ path('main') }}"><img src="{{ asset('images/logo.png') }}" alt="julien delacourt - développeur web sur montpellier" /></a>
+			            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			                Menu
+			                <i class="fa fa-bars"></i>
+			            </button>
+			            <div class="collapse navbar-collapse" id="navbarResponsive">
+			                <ul class="navbar-nav ml-auto">
+			                    <li class="nav-item">
+			                        <a href="{{ path('experiences') }}" class="nav-link">Expériences</a>
+			                    </li>
+			                    <li class="nav-item">
+			                        <a href="{{ path('skills') }}" class="nav-link">Compétences</a>
+			                    </li>
+			                    <li class="nav-item">
+			                        <a href="{{ path('cursus') }}" class="nav-link">Cursus</a>
+			                    </li>
+			                    <li class="nav-item">
+			                        <a href="{{ path('realisations') }}" class="nav-link">Portfolio</a>
+			                    </li>
+			                     <li class="nav-item">
+			                        <a href="{{ path('contact') }}" class="nav-link">Contact</a>
+			                    </li>
+			                    {% if not app.user %}
+			                     <li class="nav-item">
+			                        <a href="{{ path('security_login') }}" class="nav-link">Connexion</a>
+			                    </li>
+			                    {% else %}
+			                    <li class="nav-item">
+			                        <a href="{{ path('security_logout') }}" class="nav-link">Déconnexion</a>
+			                    </li>
+			                    {% endif %}
+			                </ul>
+			            </div>
+			        </div>
+			    </nav>
+
+			        <!-- Page Header -->
+			    <header class="masthead" style="background-image: url('http://delakdev.fr/images/home-bg.jpg')">
+			        <div class="overlay"></div>
+			        <div class="container">
+			            <div class="row">
+			                <div class="col-lg-8 col-md-10 mx-auto">
+			                    <div class="site-heading">
+			                        <h1>Julien Delacourt</h1>
+			                        <span class="subheading">Développeur Web PHP</span>
+			                    </div>
+			                </div>
+			            </div>
+			        </div>
+			    </header>
+        	{% endblock %}
+
+        {% endblock %}
+        <div class="container">
+	        {% block content %}
+	        {% endblock %}
+    	</div>
+        {% block footer %}
+        <footer>
+        	<div class="container">
+		      <div class="row">
+		          <div class="col-lg-8 col-md-10 mx-auto">
+		              <ul class="list-inline text-center">
+		                  <li class="list-inline-item">
+		                      <a href="#">
+		                <span class="fa-stack fa-lg">
+		                  <i class="fa fa-circle fa-stack-2x"></i>
+		                  <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+		                </span>
+		                      </a>
+		                  </li>
+		                  <li class="list-inline-item">
+		                      <a href="#">
+		                <span class="fa-stack fa-lg">
+		                  <i class="fa fa-circle fa-stack-2x"></i>
+		                  <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+		                </span>
+		                      </a>
+		                  </li>
+		                  <li class="list-inline-item">
+		                      <a href="#">
+		                <span class="fa-stack fa-lg">
+		                  <i class="fa fa-circle fa-stack-2x"></i>
+		                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+		                </span>
+		                      </a>
+		                  </li>
+		              </ul>
+		              <p class="copyright text-muted">Copyright &copy;  2018 - julien-delacourt.fr<br>Logo réalisé par <a href="http://www.julie-delporte.fr/" target="blank">Julie Delporte</a></p>
+		          </div>
+		      </div>
+		    </div>
+		</footer>
+        {% endblock %}
+        {% block javascripts %}
+        <script type = 'text/javascript' src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+           <script type='text/javascript' src="{{ asset('js/delak.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

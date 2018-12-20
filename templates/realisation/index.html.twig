@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes Réalisations{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 col-md-12 mx-auto">
+       	<h2>Réalisations</h2>
+       	<br>
+       	<hr>
+       	{% for realisation in realisations %}
+       	<div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <a href="{{ realisation.url }}"><img class="img-fluid" src="{{ asset('images/realisations/' ~ realisation.image) }}" alt="{{ realisation.title }}"/></a>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="realisation-desc text-center">
+              <h3>{{ realisation.title }}</h3>
+              <h4>{{ realisation.year }}</h4>
+              {{ realisation.body|raw }}
+            </div>
+          </div>  
+       	</div>
+       	<hr>
+       	{% else %}
+       	Pas encore de Réalisations
+    	<hr>
+       	{% endfor %}
+    </div>
+</div>
+{% endblock %}

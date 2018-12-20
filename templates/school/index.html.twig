@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Julien Delacourt - Mon Cursus{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12 col-md-12 mx-auto">
+       	<h2>Mon Cursus</h2>
+       	<hr>
+       	<div class="row">
+          	<ul class="timeline">    
+          	{% for school in schools %}
+            	{% if (school.id % 2 == 0) %}
+       
+        		<li class="timeline-inverted">
+            	{% else %}
+        		<li>
+            	{% endif %}
+	              	<div class="tl-circ"></div>
+	          		<div class="timeline-panel">
+	                	<div class="tl-heading">
+	                 		<h3>{{ school.diplome }}</h3>
+	                		<p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ school.year }}</small></p>
+	                	</div>
+	                	<div class="tl-body">
+	                		<p>{{ school.name }}</p>
+	                	</div>
+	              	</div>
+    			</li>
+          	{% else %}
+          		Pas de Cursus
+          	{% endfor %}
+        	</ul>
+        
+       	</div>
+        <hr>
+    </div>
+</div>
+{% endblock %}
+
+
+
