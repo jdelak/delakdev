@@ -1,0 +1,48 @@
+{% extends 'admin/dashboard.html.twig' %}
+{% block title %}<title>Julien Delacourt - Dashboard - Toutes les Compétences</title>{% endblock %}
+{% block header %}
+<h2 class="pageheader-title">Dashboard - Toutes les Compétences</h2>
+<div class="page-breadcrumb">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {% block breadcrumb %}
+            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Toutes les Compétences</li>
+            {% endblock %}
+        </ol>
+    </nav>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="card">
+            <h5 class="card-header">Toutes les compétences</h5>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead class="bg-light">
+                            <tr class="border-0">
+                                <th class="border-0">Nom</th>
+                                <th class="border-0">Durée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    	{% for skill in skills %}
+                			<tr>
+                				<td>{{ skill.name }}</td>
+                				<td>{{ skill.duration }}</td>
+                			</tr>
+                    	{% else %}
+				       	Pas encore de Compétences
+				    	<hr>
+				       	{% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

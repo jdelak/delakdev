@@ -11,7 +11,7 @@
        	{% for realisation in realisations %}
        	<div class="row">
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <a href="{{ realisation.url }}"><img class="img-fluid" src="{{ asset('images/realisations/' ~ realisation.image) }}" alt="{{ realisation.title }}"/></a>
+            <a href="{{ realisation.url }}" target="_blank"><img class="img-fluid" src="{{ asset('images/realisations/' ~ realisation.image) }}" alt="{{ realisation.title }}"/></a>
           </div>
           <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <div class="realisation-desc text-center">

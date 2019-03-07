@@ -9,6 +9,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Form\RegistrationType;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Csrf\TokenGenerator\TokenGeneratorInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class SecurityController extends AbstractController
 {
@@ -48,6 +50,96 @@ class SecurityController extends AbstractController
      * @Route("/logout", name="security_logout")
      */
     public function logout(){
+
+    }
+
+    /**
+     * @Route("/forgottenPassword", name="forgotten_password")
+     */
+    public function forgottenPassword(
+        Request $request, 
+        \Swift_Mailer $mailer, 
+        TokenGeneratorInterface $tokenGenerator
+    )
+    {
+        if ($request->isMethod('POST')) {
+
+            $email = $request->request->get('email');
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $user = $entityManager->getRepository(User::class)->findOneByEmail($email);
+            /* @var $user User */
+
+            if ($user === null) {
+                $this->addFlash('danger', 'Email Inconnu');
+                return $this->redirectToRoute('main');
+            }
+            $token = $tokenGenerator->generateToken();
+
+            try{
+                $user->setResetToken($token);
+                $entityManager->flush();
+            } catch (\Exception $e) {
+                $this->addFlash('warning', $e->getMessage());
+                return $this->redirectToRoute('main');
+            }
+
+            $url = $this->generateUrl('reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
+
+             $transport = (new \Swift_SmtpTransport('in-v3.mailjet.com', 587))
+                ->setUsername('11f25530c2b8a196cf224f83b9ace0c6')
+                ->setPassword('c416a06275a7f65bf435cfd5a680f0cb')
+                ->setEncryption('tls')
+                ->setStreamOptions(array('ssl' => array('allow_self_signed' => true, 'verify_peer' => false))
+            );
+            $mailer = new \Swift_Mailer($transport);
+
+            $message = (new \Swift_Message('Demande de nouveau mot de passe'))
+                ->setFrom('delakdev@gmail.com')
+                ->setTo($user->getEmail())
+                ->setBody(
+                    "Bonjour,<br> Voici le lien pour définir votre nouveau votre mot de passe : <a href='" . $url . "'>Redéfinir votre mot de passe</a><br> Si vous n êtes pas à l'origine de cette action, ne cliquez pas sur le lien !",
+                    'text/html'
+                );
+
+            $mailer->send($message);
+
+            $this->addFlash('success', 'Mail envoyé');
+
+            return $this->redirectToRoute('main');
+        }
+
+        return $this->render('security/forgotten_password.html.twig');
+    }
+
+    /**
+     * @Route("/reset_password/{token}", name="reset_password")
+    */
+    public function resetPassword(Request $request, string $token, UserPasswordEncoderInterface $passwordEncoder)
+    {
+
+        if ($request->isMethod('POST')) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $user = $entityManager->getRepository(User::class)->findOneByResetToken($token);
+            /* @var $user User */
+
+            if ($user === null) {
+                $this->addFlash('danger', 'Token Inconnu');
+                return $this->redirectToRoute('main');
+            }
+
+            $user->setResetToken(null);
+            $user->setPassword($passwordEncoder->encodePassword($user, $request->request->get('password')));
+            $entityManager->flush();
+
+            $this->addFlash('success', 'Mot de passe mis à jour');
+
+            return $this->redirectToRoute('main');
+        }else {
+
+            return $this->render('security/reset_password.html.twig', ['token' => $token]);
+        }
 
     }
 }

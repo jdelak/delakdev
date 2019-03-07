@@ -1,0 +1,34 @@
+{% extends 'admin/dashboard.html.twig' %}
+{% block title %}Modifier une réalisation{% endblock %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{% block header %}
+    <h2 class="pageheader-title">Dashboard - Modifier une réalisation</h2>
+    <div class="page-breadcrumb">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                {% block breadcrumb %}
+                    <li class="breadcrumb-item"><a href="{{ path('dashboard') }}" class="breadcrumb-link">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Modifier une réalisation</li>
+                {% endblock %}
+            </ol>
+        </nav>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12 col-md-12 mx-auto">
+            <h1>Modifier une réalisation</h1>
+            {{ form_start(form) }}
+            {{ form_row(form.title) }}
+            {{ form_row(form.body) }}
+            {{ form_row(form.url) }}
+            {{ form_row(form.imageFile) }}
+            {{ form_row(form.year) }}
+            <button type="submit" class="btn btn-primary">Envoyer</button>
+            <hr>
+            {{ form_end(form) }}
+
+        </div>
+
+    </div>
+{% endblock %}

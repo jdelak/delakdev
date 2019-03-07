@@ -21,4 +21,12 @@ class SkillController extends AbstractController
             'skills' => $skills
         ]);
     }
+
+    /**
+     * @Route("/admin/skills/add", name="add_skills")
+     */
+    public function add()
+    {
+
+    }
 }

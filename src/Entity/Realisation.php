@@ -134,7 +134,7 @@ class Realisation
 
     public function setImage(?string $image): void
     {
-        $this->imageName = $imageName;
+        $this->image = $image;
     }
 
     public function getImage(): ?string

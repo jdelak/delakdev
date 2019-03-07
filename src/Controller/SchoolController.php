@@ -20,4 +20,12 @@ class SchoolController extends AbstractController
             'schools' => $schools
         ]);
     }
+
+    /**
+     * @Route("/admin/cursus/add", name="add_cursus")
+     */
+    public function add()
+    {
+
+    }
 }
