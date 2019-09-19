@@ -46,15 +46,9 @@
 			                     <li class="nav-item">
 			                        <a href="{{ path('contact') }}" class="nav-link">Contact</a>
 			                    </li>
-			                    {% if not app.user %}
-			                     <li class="nav-item">
-			                        <a href="{{ path('security_login') }}" class="nav-link">Connexion</a>
-			                    </li>
-			                    {% else %}
-			                    <li class="nav-item">
-			                        <a href="{{ path('security_logout') }}" class="nav-link">Déconnexion</a>
-			                    </li>
-			                    {% endif %}
+								<li class="nav-item">
+									<a href="{{ asset('downloads/Julien Delacourt - Développeur Java.pdf') }}" class="nav-link" target="blank">Mon CV PDF</a>
+								</li>
 			                </ul>
 			            </div>
 			        </div>

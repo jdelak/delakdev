@@ -17,11 +17,24 @@ class SkillController extends AbstractController
      */
     public function index(SkillRepository $repo)
     {
-    	$skills = $repo->findByCatAsc();
+    	$frontSkills = $repo->findByCatAsc(1);
+        $phpSkills = $repo->findByCatAsc(2);
+        $javaSkills = $repo->findByCatAsc(3);
+        $bddSkills = $repo->findByCatAsc(4);
+        $graphSkills = $repo->findByCatAsc(5);
+        $gitSkills = $repo->findByCatAsc(6);
+        $otherSkills = $repo->findByCatAsc(7);
 
         return $this->render('skill/index.html.twig', [
             'controller_name' => 'SkillController',
-            'skills' => $skills
+            'frontSkills' => $frontSkills,
+            'phpSkills' => $phpSkills,
+            'javaSkills' => $javaSkills,
+            'bddSkills' => $bddSkills,
+            'graphSkills' => $graphSkills,
+            'gitSkills' => $gitSkills,
+            'otherSkills' => $otherSkills
+            
         ]);
     }
 

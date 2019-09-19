@@ -151,14 +151,14 @@ a.nav-link.login:hover{
 }
 
 @media only screen and (min-width: 1025px) {
- 
+
   #mainNav .navbar-nav > li.nav-item > a {
     padding: 10px 20px;
-    
+
   }
   #mainNav .navbar-nav > li.nav-item > .nav-link.connect{
-  border:1px solid #343A40;
-  padding: 10px 5px;
+    border:1px solid #343A40;
+    padding: 10px 5px;
   }
 
 }
@@ -199,7 +199,7 @@ a.nav-link.login:hover{
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
     color: #0085A1;
   }
-  
+
 }
 
 header.masthead {
@@ -414,7 +414,7 @@ footer .copyright {
 }
 
 footer .copyright a{
- color: #0085A1 ;
+  color: #0085A1 ;
 }
 
 .btn {
@@ -478,9 +478,9 @@ footer .copyright a{
 
 .chart-horiz .chart li {
   display: block;
-    height: 26px;
-    margin-top: 3px;
-    margin-bottom: 3px;
+  height: 26px;
+  margin-top: 3px;
+  margin-bottom: 3px;
   position: relative
 }
 
@@ -497,8 +497,8 @@ footer .copyright a{
   left: 0
 }
 
-.chart-horiz .chart li:first-child { 
-  margin-top: 0 
+.chart-horiz .chart li:first-child {
+  margin-top: 0
 }
 
 .chart-horiz .chart li .bar {
@@ -516,12 +516,12 @@ footer .copyright a{
   top: -3px
 }
 
-.chart-horiz .chart li.past .bar { 
-  background: #343A40 
+.chart-horiz .chart li.past .bar {
+  background: #343A40
 }
 
-.chart-horiz .chart li.past .number { 
-  color: #0085A1 
+.chart-horiz .chart li.past .number {
+  color: #0085A1
 }
 
 /*---------------- Réalisations -------------------- */
@@ -534,55 +534,55 @@ footer .copyright a{
 }
 
 #mainwrapper .box {
-    border: 5px solid #fff;
-    cursor: pointer;
-    height: 150px;
-    float: left;
-    margin: 5px;
-    position: relative;
-    overflow: hidden;
-    width: 300px;
-    -webkit-box-shadow: 1px 1px 1px 1px #ccc;
-    -moz-box-shadow: 1px 1px 1px 1px #ccc;
-    box-shadow: 1px 1px 1px 1px #ccc;
+  border: 5px solid #fff;
+  cursor: pointer;
+  height: 150px;
+  float: left;
+  margin: 5px;
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  -webkit-box-shadow: 1px 1px 1px 1px #ccc;
+  -moz-box-shadow: 1px 1px 1px 1px #ccc;
+  box-shadow: 1px 1px 1px 1px #ccc;
 }
- 
+
 #mainwrapper .box img {
-    position: absolute;
-    left: 0;
-    -webkit-transition: all 300ms ease-out;
-    -moz-transition: all 300ms ease-out;
-    -o-transition: all 300ms ease-out;
-    -ms-transition: all 300ms ease-out;
-    transition: all 300ms ease-out;
+  position: absolute;
+  left: 0;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
 }
 
 #mainwrapper .box .caption {
-    background-color: rgba(0,0,0,0.8);
-    position: absolute;
-    color: #fff;
-    z-index: 100;
-    -webkit-transition: all 300ms ease-out;
-    -moz-transition: all 300ms ease-out;
-    -o-transition: all 300ms ease-out;
-    -ms-transition: all 300ms ease-out;
-    transition: all 300ms ease-out;
-    left: 0;
+  background-color: rgba(0,0,0,0.8);
+  position: absolute;
+  color: #fff;
+  z-index: 100;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  -o-transition: all 300ms ease-out;
+  -ms-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  left: 0;
 }
 
 #mainwrapper .box .full-caption {
-    width: 170px;
-    height: 170px;
-    top: -200px;
-    text-align: left;
-    padding: 15px;
+  width: 170px;
+  height: 170px;
+  top: -200px;
+  text-align: left;
+  padding: 15px;
 }
 
 #mainwrapper .box:hover .full-caption {
-    -moz-transform: translateY(100%);
-    -o-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
 }
 
 .realisation-img{
@@ -748,12 +748,18 @@ footer .copyright a{
   margin-top: 5px;
 }
 
+.skill{
+  margin-top:25px;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
 
 @media only screen and (max-width: 769px) {
- 
- .chart-horiz .chart li.past .number {
+
+  .chart-horiz .chart li.past .number {
     left: 100% !important;
-    
+
   }
-  
+
 }

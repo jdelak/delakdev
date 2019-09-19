@@ -19,11 +19,13 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
-    public function findByCatAsc(){
+    public function findByCatAsc($cat){
         return $this->createQueryBuilder('s')
-        ->orderBy('s.duration', 'ASC')
-        ->getQuery()
-        ->getResult();
+            ->andWhere('s.duration = :cat')
+            ->setParameter('cat', $cat)
+            ->orderBy('s.id', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 
     // /**
