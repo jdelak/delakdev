@@ -19,9 +19,9 @@ class SkillRepository extends ServiceEntityRepository
         parent::__construct($registry, Skill::class);
     }
 
-    public function findByMost(){
+    public function findByCatAsc(){
         return $this->createQueryBuilder('s')
-        ->orderBy('s.duration', 'DESC')
+        ->orderBy('s.duration', 'ASC')
         ->getQuery()
         ->getResult();
     }

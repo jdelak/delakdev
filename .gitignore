@@ -16,6 +16,10 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
+# Don't track these files
+/src/Controller/ContactController.php
+/src/Controller/SecurityController.php
+
 ###> symfony/webpack-encore-bundle ###
 /node_modules/
 /public/build/

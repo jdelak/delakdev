@@ -87,8 +87,8 @@ class SecurityController extends AbstractController
             $url = $this->generateUrl('reset_password', array('token' => $token), UrlGeneratorInterface::ABSOLUTE_URL);
 
              $transport = (new \Swift_SmtpTransport('in-v3.mailjet.com', 587))
-                ->setUsername('11f25530c2b8a196cf224f83b9ace0c6')
-                ->setPassword('c416a06275a7f65bf435cfd5a680f0cb')
+                ->setUsername('xxxx')
+                ->setPassword('xxxx')
                 ->setEncryption('tls')
                 ->setStreamOptions(array('ssl' => array('allow_self_signed' => true, 'verify_peer' => false))
             );
