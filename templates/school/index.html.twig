@@ -8,11 +8,11 @@
        	<h2>Mon Cursus</h2>
        	<hr>
        	<div class="row">
-          	<ul class="timeline">    
+          	<ul class="timeline wow bounceInLeft">
           	{% for school in schools %}
             	{% if (school.id % 2 == 0) %}
-       
-        		<li class="timeline-inverted">
+
+        		<li class="timeline-inverted wow bounceInRight">
             	{% else %}
         		<li>
             	{% endif %}
@@ -31,12 +31,9 @@
           		Pas de Cursus
           	{% endfor %}
         	</ul>
-        
+
        	</div>
         <hr>
     </div>
 </div>
 {% endblock %}
-
-
-
