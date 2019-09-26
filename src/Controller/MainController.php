@@ -18,5 +18,14 @@ class MainController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/cv", name="cv")
+     */
+    public function cv(){
+      return $this->render('main/cv.html.twig', [
+          'controller_name' => 'MainController',
+      ]);
+    }
+
 
 }
