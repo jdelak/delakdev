@@ -3,14 +3,18 @@
 	{% form_theme form 'bootstrap_4_layout.html.twig' %}
 {% block content %}
 	<div class="row">
-		<div class="col-lg-10 col-md-10 mx-auto"><h2>Me contacter</h2>
+		<div class="col-lg-10 col-md-10 mx-auto">
+			<h2>Me contacter</h2>
+			<p>
+			Via Linkedin : <a href="https://www.linkedin.com/in/juliendelacourt1991" target="_blank">https://www.linkedin.com/in/juliendelacourt1991</a>
+			</p>
 			{{ form_start(form) }}
 	    	{{ form_row(form.name) }}
 	    	{{ form_row(form.email) }}
 	    	{{ form_row(form.sujet) }}
 	    	{{ form_row(form.message) }}
     	<button type="submit" class="btn btn-primary">Envoyer</button>
-		<hr>
+			<hr>
     	{{ form_end(form) }}
 		</div>
 	</div>
